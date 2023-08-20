@@ -20,3 +20,13 @@ jobs:
         uses: super-linter/super-linter/slim@v5
         env:         
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  checkov:
+    name: Checkov
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Checkov
+        uses: bridgecrewio/checkov-action@v12
